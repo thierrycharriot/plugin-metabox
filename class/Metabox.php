@@ -39,7 +39,7 @@
      * @since      0.0.1
      */    
     public function metabox_save( $post_id ) {
-        if( isset( $_POST['metabox_input'] ) ){
+        if( ( isset( $_POST['metabox_input'] ) ) && $_POST['metabox_input'] !== '0' ) {
             /**
              * https://developer.wordpress.org/reference/functions/sanitize_text_field/
              * sanitize_text_field( string $str )
@@ -52,6 +52,13 @@
              * Updates a post meta field based on the given post ID.
              */
             update_post_meta( $post_id, 'metabox_input', $metabox_input );
+        } else {
+            /**
+             * https://developer.wordpress.org/reference/functions/delete_post_meta/
+             * delete_post_meta( int $post_id, string $meta_key, mixed $meta_value = '' )
+             * Deletes a post meta field for the given post ID.
+             */
+            delete_post_meta( $post_id, 'metabox_input', $metabox_input );
         }
     }
  }
