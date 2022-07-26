@@ -1,3 +1,11 @@
 # plugin-metabox
 
-plugin serving as a base for a metabox
+Plugin serving as a base for a metabox
+
+## Installation
+
+
+## Usage
+
+
+## License
