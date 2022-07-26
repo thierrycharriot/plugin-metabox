@@ -172,8 +172,13 @@ class Plugin_Metabox {
 		 * https://developer.wordpress.org/reference/hooks/add_meta_boxes/
 		 * do_action( 'add_meta_boxes', string $post_type, WP_Post $post )
 		 * Fires after all built-in meta boxes have been added.
+		 * 
+		 * https://developer.wordpress.org/reference/hooks/save_post/
+		 * do_action( 'save_post', int $post_ID, WP_Post $post, bool $update )
+		 * Fires once a post has been saved.
 		 */
 		$this->loader->add_action( 'add_meta_boxes', $meta_box, 'metabox_register' );
+		$this->loader->add_action( 'save_post', $meta_box, 'metabox_save' );
 
 	}
 
