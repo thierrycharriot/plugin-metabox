@@ -54,14 +54,14 @@
          * current_user_can( string $capability, mixed $args )
          * Returns whether the current user has the specified capability.
          */
-        if(array_key_exists( 'metabox_input', $_POST ) && current_user_can( 'edit_post', $post_id, $meta_key ) ) {
-            if( $_POST['metabox_input'] === '0' ) {
+        if(array_key_exists( 'metabox_input', $_POST ) && current_user_can( 'edit_post', $post_id, 'metabox_input' ) ) {
+            if( $_POST['metabox_input'] === '' ) {
                 /**
                  * https://developer.wordpress.org/reference/functions/delete_post_meta/
                  * delete_post_meta( int $post_id, string $meta_key, mixed $meta_value = '' )
                  * Deletes a post meta field for the given post ID.
                  */
-                delete_post_meta( $post_id, 'metabox_input' );              
+                delete_post_meta( $post_id, 'metabox_input' ); // Debug OK         
             } else {
                 /**
                  * https://developer.wordpress.org/reference/functions/sanitize_text_field/
